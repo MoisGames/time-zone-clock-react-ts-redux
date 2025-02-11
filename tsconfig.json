@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "sourceMap": true,
+      "noImplicitAny": true,
+      "module": "ESNext",
+      "target": "ES6",
+      "jsx": "react-jsx",
+      "allowJs": false,
+      "moduleResolution": "node",
+      "esModuleInterop": true
+    },
+    "include": ["src/**/*", "global.d.ts"],
+    "exclude": ["node_modules", "dist"]
+  }

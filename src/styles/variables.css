@@ -1,0 +1,8 @@
+
+:root {
+    --clock-size: 200px;
+    --clock-border-width: 6px;
+    --clock-bg-color: #fff;
+    --clock-border-color: #333;
+    --clock-hand-color: #000;
+  }
