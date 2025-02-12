@@ -1,7 +1,13 @@
 @import '../../styles/variables.css';
 
+.clock-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .clock {
   position: relative;
+  display: inline-block;
   width: calc(var(--clock-size) - var(--clock-border-width) * 2);
   height: calc(var(--clock-size) - var(--clock-border-width) * 2);
   border: var(--clock-border-color) solid var(--clock-border-width);
@@ -41,7 +47,6 @@
   height: calc(var(--minute-hand-length) / 2);
   background-color: var(--clock-hand-color);
   border-radius: 4px;
-  transform: rotate(30deg);
 }
 
 .minute-hand {
@@ -49,7 +54,6 @@
   height: var(--minute-hand-length);
   background-color: var(--clock-hand-color);
   border-radius: 4px;
-  transform: rotate(60deg);
 }
 
 .second-hand {
@@ -57,7 +61,12 @@
   height: var(--second-hand-length);
   background-color: red;
   border-radius: 2px;
-  transform: rotate(90deg);
+}
+
+.time-display {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--clock-hand-color);
 }
 
 .number {

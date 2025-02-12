@@ -6,6 +6,11 @@ const ClockPage: React.FC = () => {
   return (
     <main className="page-container">
       <Clock />
+      <Clock />
+      <Clock />
+      <Clock />
+      <Clock />
+      <Clock />
     </main>
   );
 };
