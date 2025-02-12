@@ -21,7 +21,7 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
   const secondHandRef = useRef<HTMLDivElement>(null);
 
   const updateClock = () => {
-    if (!currentCity?.timezone) return;
+    if (!currentCity?.timezone) return '--:--:--';
 
     const now = new Date();
     const targetTime = new Date(now.toLocaleString('en-US', { timeZone: currentCity.timezone }));
@@ -29,9 +29,11 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
     const hours = targetTime.getHours() % 12;
     const minutes = targetTime.getMinutes();
     const seconds = targetTime.getSeconds();
-    const hourRotation = (hours + minutes / 60) * 30;
-    const minuteRotation = (minutes + seconds / 60) * 6;
-    const secondRotation = seconds * 6;
+    const milliseconds = targetTime.getMilliseconds();
+
+    const hourRotation = (hours + minutes / 60 + seconds / 3600) * 30;
+    const minuteRotation = (minutes + seconds / 60 + milliseconds / 60000) * 6;
+    const secondRotation = (seconds + milliseconds / 1000) * 6;
 
     if (hourHandRef.current) {
       hourHandRef.current.style.transform = `rotate(${hourRotation}deg)`;
@@ -51,11 +53,18 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
   );
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(updateClock() || '--:--:--');
-    }, 1000);
+    let animationFrameId: number;
 
-    return () => clearInterval(intervalId);
+    const tick = () => {
+      setCurrentTime(updateClock() || '--:--:--');
+      animationFrameId = requestAnimationFrame(tick);
+    };
+
+    if (currentCity?.timezone) {
+      tick();
+    }
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, [currentCity?.timezone]);
 
   const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -79,7 +88,6 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
         </div>
       </div>
       <div className="time-display">{currentTime}</div>
-
       <div className="city-selector">
         <select
           value={currentCity?.city || ''}
