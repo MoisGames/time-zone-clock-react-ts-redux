@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/data/timezones.json';
+const API_URL = '/timezones.json';
 
 export const fetchTimezones = async () => {
   try {

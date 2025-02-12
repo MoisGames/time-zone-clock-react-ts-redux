@@ -1,0 +1,13 @@
+[
+  { "city": "Калининград", "timezone": "Europe/Kaliningrad" },
+  { "city": "Москва", "timezone": "Europe/Moscow" },
+  { "city": "Саратов", "timezone": "Europe/Samara" },
+  { "city": "Екатеринбург", "timezone": "Asia/Yekaterinburg" },
+  { "city": "Омск", "timezone": "Asia/Omsk" },
+  { "city": "Красноярск", "timezone": "Asia/Krasnoyarsk" },
+  { "city": "Иркутск", "timezone": "Asia/Irkutsk" },
+  { "city": "Чита", "timezone": "Asia/Chita" },
+  { "city": "Владивосток", "timezone": "Asia/Vladivostok" },
+  { "city": "Магадан", "timezone": "Asia/Magadan" },
+  { "city": "Анадырь", "timezone": "Asia/Anadyr" }
+]

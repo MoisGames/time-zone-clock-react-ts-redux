@@ -1,7 +1,65 @@
 .page-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.clock-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.clock-controls button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.clock-controls button:hover {
+  background-color: #45a049;
+}
+
+.clock-controls button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.clocks-container {
+  display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  padding: 20px;
+}
+
+.clock-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.time-display {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.city-selector {
+  margin-top: 10px;
+}
+
+#city-select {
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+.loading {
+  font-size: 24px;
+  font-weight: bold;
+  color: gray;
+  text-align: center;
+  margin-top: 50px;
 }
