@@ -5,12 +5,12 @@ import { selectCity } from '../../store/store';
 import { RootState } from '../../store/store';
 
 interface ClockProps {
-  id: string; 
+  id: string;
 }
 
 const Clock: React.FC<ClockProps> = ({ id }) => {
   const dispatch = useDispatch();
-  const { allTimezones, selectedCities }: { allTimezones: any[], selectedCities: any[] } = useSelector(
+  const { allTimezones, selectedCities } = useSelector(
     (state: RootState) => state.clock
   );
 
@@ -20,31 +20,41 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
   const minuteHandRef = useRef<HTMLDivElement>(null);
   const secondHandRef = useRef<HTMLDivElement>(null);
 
+  const updateClock = () => {
+    if (!currentCity?.timezone) return;
+
+    const now = new Date();
+    const targetTime = new Date(now.toLocaleString('en-US', { timeZone: currentCity.timezone }));
+
+    const hours = targetTime.getHours() % 12;
+    const minutes = targetTime.getMinutes();
+    const seconds = targetTime.getSeconds();
+    const hourRotation = (hours + minutes / 60) * 30;
+    const minuteRotation = (minutes + seconds / 60) * 6;
+    const secondRotation = seconds * 6;
+
+    if (hourHandRef.current) {
+      hourHandRef.current.style.transform = `rotate(${hourRotation}deg)`;
+    }
+    if (minuteHandRef.current) {
+      minuteHandRef.current.style.transform = `rotate(${minuteRotation}deg)`;
+    }
+    if (secondHandRef.current) {
+      secondHandRef.current.style.transform = `rotate(${secondRotation}deg)`;
+    }
+
+    return targetTime.toLocaleTimeString('ru-RU');
+  };
+
+  const [currentTime, setCurrentTime] = React.useState<string>(() =>
+    currentCity?.timezone ? updateClock() || '--:--:--' : '--:--:--'
+  );
+
   useEffect(() => {
-    const updateClock = () => {
-      if (!currentCity?.timezone) return;
-      const now = new Date();
-      const targetTime = new Date(now.toLocaleString('en-US', { timeZone: currentCity.timezone }));
-      const hours = targetTime.getHours() % 12;
-      const minutes = targetTime.getMinutes();
-      const seconds = targetTime.getSeconds();
-      const hourRotation = (hours + minutes / 60) * 30;
-      const minuteRotation = (minutes + seconds / 60) * 6;
-      const secondRotation = seconds * 6;
+    const intervalId = setInterval(() => {
+      setCurrentTime(updateClock() || '--:--:--');
+    }, 1000);
 
-      if (hourHandRef.current) {
-        hourHandRef.current.style.transform = `rotate(${hourRotation}deg)`;
-      }
-      if (minuteHandRef.current) {
-        minuteHandRef.current.style.transform = `rotate(${minuteRotation}deg)`;
-      }
-      if (secondHandRef.current) {
-        secondHandRef.current.style.transform = `rotate(${secondRotation}deg)`;
-      }
-    };
-
-    const intervalId = setInterval(updateClock, 1000);
-    updateClock();
     return () => clearInterval(intervalId);
   }, [currentCity?.timezone]);
 
@@ -68,11 +78,7 @@ const Clock: React.FC<ClockProps> = ({ id }) => {
           <div className="hand second-hand" ref={secondHandRef}></div>
         </div>
       </div>
-      <div className="time-display">
-        {currentCity?.city && currentCity?.timezone
-          ? new Date().toLocaleTimeString('ru-RU', { timeZone: currentCity.timezone })
-          : '--:--:--'}
-      </div>
+      <div className="time-display">{currentTime}</div>
 
       <div className="city-selector">
         <select
