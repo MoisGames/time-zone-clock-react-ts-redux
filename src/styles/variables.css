@@ -1,8 +1,13 @@
-
 :root {
-    --clock-size: 200px;
-    --clock-border-width: 6px;
-    --clock-bg-color: #fff;
-    --clock-border-color: #333;
-    --clock-hand-color: #000;
-  }
+  --clock-size: 200px;
+  --clock-border-width: 6px;
+  --clock-bg-color: #fff;
+  --clock-border-color: #333;
+  --clock-hand-color: #000;
+
+  --second-hand-length: 75px;
+  --minute-hand-length: 60px;
+  --hour-hand-width: 3px;
+  --minute-hand-width: 2px;
+  --second-hand-width: 1px;
+}

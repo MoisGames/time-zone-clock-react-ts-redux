@@ -20,6 +20,46 @@
   border-radius: 50%;
 }
 
+.hands-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: center bottom;
+}
+
+.hour-hand {
+  width: var(--hour-hand-width);
+  height: calc(var(--minute-hand-length) / 2);
+  background-color: var(--clock-hand-color);
+  border-radius: 4px;
+  transform: rotate(30deg);
+}
+
+.minute-hand {
+  width: var(--minute-hand-width);
+  height: var(--minute-hand-length);
+  background-color: var(--clock-hand-color);
+  border-radius: 4px;
+  transform: rotate(60deg);
+}
+
+.second-hand {
+  width: var(--second-hand-width);
+  height: var(--second-hand-length);
+  background-color: red;
+  border-radius: 2px;
+  transform: rotate(90deg);
+}
+
 .number {
   position: absolute;
   top: 43%;
