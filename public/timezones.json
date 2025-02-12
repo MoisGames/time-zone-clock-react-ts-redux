@@ -1,13 +1,13 @@
 [
-  { "city": "Калининград", "timezone": "Europe/Kaliningrad" },
-  { "city": "Москва", "timezone": "Europe/Moscow" },
-  { "city": "Саратов", "timezone": "Europe/Samara" },
-  { "city": "Екатеринбург", "timezone": "Asia/Yekaterinburg" },
-  { "city": "Омск", "timezone": "Asia/Omsk" },
-  { "city": "Красноярск", "timezone": "Asia/Krasnoyarsk" },
-  { "city": "Иркутск", "timezone": "Asia/Irkutsk" },
-  { "city": "Чита", "timezone": "Asia/Chita" },
-  { "city": "Владивосток", "timezone": "Asia/Vladivostok" },
-  { "city": "Магадан", "timezone": "Asia/Magadan" },
-  { "city": "Анадырь", "timezone": "Asia/Anadyr" }
+  { "id": "kaliningrad", "city": "Калининград", "timezone": "Europe/Kaliningrad" },
+  { "id": "moscow", "city": "Москва", "timezone": "Europe/Moscow" },
+  { "id": "saratov", "city": "Саратов", "timezone": "Europe/Samara" },
+  { "id": "ekaterinburg", "city": "Екатеринбург", "timezone": "Asia/Yekaterinburg" },
+  { "id": "omsk", "city": "Омск", "timezone": "Asia/Omsk" },
+  { "id": "krasnoyarsk", "city": "Красноярск", "timezone": "Asia/Krasnoyarsk" },
+  { "id": "irkutsk", "city": "Иркутск", "timezone": "Asia/Irkutsk" },
+  { "id": "chita", "city": "Чита", "timezone": "Asia/Chita" },
+  { "id": "vladivostok", "city": "Владивосток", "timezone": "Asia/Vladivostok" },
+  { "id": "magadan", "city": "Магадан", "timezone": "Asia/Magadan" },
+  { "id": "anadyr", "city": "Анадырь", "timezone": "Asia/Anadyr" }
 ]
