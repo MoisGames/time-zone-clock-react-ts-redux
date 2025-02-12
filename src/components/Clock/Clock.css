@@ -1,47 +1,47 @@
+@import '../../styles/variables.css';
+
 .clock {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 20px;
-    border: 6px solid #333;
-    border-radius: 50%;
-    background-color: #fff;
-  }
-  
-  .clock-face {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 188px;
-    height: 188px;
-    border-radius: 50%;
-    background: radial-gradient(#eee, #ccc);
-  }
-  
-  .hand {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: center;
-    transform: translateX(-50%) rotate(0deg);
-    background-color: #000;
-  }
-  
-  .hour-hand {
-    width: 6px;
-    height: 50px;
-    border-radius: 4px;
-  }
-  
-  .minute-hand {
-    width: 4px;
-    height: 66px;
-    border-radius: 4px;
-  }
-  
-  .second-hand {
-    width: 2px;
-    height: 80px;
-    border-radius: 2px;
-  }
+  position: relative;
+  width: calc(var(--clock-size) - var(--clock-border-width) * 2);
+  height: calc(var(--clock-size) - var(--clock-border-width) * 2);
+  border: var(--clock-border-color) solid var(--clock-border-width);
+  background-color: var(--clock-bg-color);
+  border-radius: 50%;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: var(--clock-hand-color);
+  border-radius: 50%;
+}
+
+.number {
+  position: absolute;
+  top: 43%;
+  left: 46%;
+  transform-origin: center;
+}
+
+.number span {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--clock-hand-color);
+}
+
+.number:nth-child(1) { transform: rotate(0deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(0deg); }
+.number:nth-child(2) { transform: rotate(30deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-30deg); }
+.number:nth-child(3) { transform: rotate(60deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-60deg); }
+.number:nth-child(4) { transform: rotate(90deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-90deg); }
+.number:nth-child(5) { transform: rotate(120deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-120deg); }
+.number:nth-child(6) { transform: rotate(150deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-150deg); }
+.number:nth-child(7) { transform: rotate(180deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-180deg); }
+.number:nth-child(8) { transform: rotate(210deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-210deg); }
+.number:nth-child(9) { transform: rotate(240deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-240deg); }
+.number:nth-child(10) { transform: rotate(270deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-270deg); }
+.number:nth-child(11) { transform: rotate(300deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-300deg); }
+.number:nth-child(12) { transform: rotate(330deg) translate(0, calc(-50% - var(--clock-size) / 3)) rotate(-330deg); }

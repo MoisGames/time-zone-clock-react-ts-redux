@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/globals.css';
+import './ClockPage.css';
 import Clock from '../components/Clock/Clock';
 
 const ClockPage: React.FC = () => {
   return (
-    <div className="clock-container">
+    <main className="page-container">
       <Clock />
-    </div>
+    </main>
   );
 };
 
